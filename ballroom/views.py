@@ -1,4 +1,6 @@
 # Create your views here.
+from rest_framework.filters import OrderingFilter, SearchFilter
+from django_filters.rest_framework import DjangoFilterBackend, FilterSet
 from rest_framework import viewsets
 
 from ballroom.serializers import TrainerSerializer, TypeBallroomDancingSerializer, TeamSerializer, MemberSerializer, \
@@ -9,6 +11,10 @@ from ballroom.models import Trainer, TypeBallroomDancing, Team, Member, Competit
 class TrainerViewSet(viewsets.ModelViewSet):
     serializer_class = TrainerSerializer
     queryset = Trainer.objects.all()
+    filter_backends = [OrderingFilter, DjangoFilterBackend, SearchFilter]
+    filterset_fields = ['full_name']
+    search_fields = ['full_name']
+    ordering_fields = '__all__'
 
 
 class TypeBallroomDancingViewSet(viewsets.ModelViewSet):
