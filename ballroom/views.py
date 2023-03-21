@@ -11,37 +11,54 @@ from ballroom.models import Trainer, TypeBallroomDancing, Team, Member, Competit
 class TrainerViewSet(viewsets.ModelViewSet):
     serializer_class = TrainerSerializer
     queryset = Trainer.objects.all()
-    filter_backends = [OrderingFilter, DjangoFilterBackend, SearchFilter]
-    filterset_fields = ['full_name']
-    search_fields = ['full_name']
+    filter_backends = [OrderingFilter, DjangoFilterBackend]
+    filterset_fields = '__all__'
     ordering_fields = '__all__'
 
 
 class TypeBallroomDancingViewSet(viewsets.ModelViewSet):
     serializer_class = TypeBallroomDancingSerializer
     queryset = TypeBallroomDancing.objects.all()
+    filter_backends = [OrderingFilter, DjangoFilterBackend]
+    filterset_fields = '__all__'
+    ordering_fields = '__all__'
 
 
 class TeamViewSet(viewsets.ModelViewSet):
     serializer_class = TeamSerializer
     queryset = Team.objects.all()
+    filter_backends = [OrderingFilter, DjangoFilterBackend]
+    filterset_fields = '__all__'
+    ordering_fields = '__all__'
 
 
 class MemberViewSet(viewsets.ModelViewSet):
     serializer_class = MemberSerializer
     queryset = Member.objects.all()
+    filter_backends = [OrderingFilter, DjangoFilterBackend]
+    filterset_fields = ['lastname', 'team', 'city', 'level']
+    ordering_fields = '__all__'
 
 
 class CompetitionViewSet(viewsets.ModelViewSet):
     serializer_class = CompetitionSerializer
     queryset = Competition.objects.all()
+    filter_backends = [OrderingFilter, DjangoFilterBackend]
+    filterset_fields = '__all__'
+    ordering_fields = '__all__'
 
 
 class CompetitionProgramViewSet(viewsets.ModelViewSet):
     serializer_class = CompetitionProgramSerializer
     queryset = CompetitionProgram.objects.all()
+    filter_backends = [OrderingFilter, DjangoFilterBackend]
+    filterset_fields = '__all__'
+    ordering_fields = '__all__'
 
 
 class PointViewSet(viewsets.ModelViewSet):
     serializer_class = PointSerializer
     queryset = Point.objects.all()
+    filter_backends = [OrderingFilter, DjangoFilterBackend]
+    filterset_fields = '__all__'
+    ordering_fields = '__all__'
