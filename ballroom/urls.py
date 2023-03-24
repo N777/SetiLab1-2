@@ -22,13 +22,13 @@ from ballroom.views import TrainerViewSet, TypeBallroomDancingViewSet, TeamViewS
 
 router = routers.SimpleRouter()
 
-router.register(r'trainer', TrainerViewSet)
-router.register(r'typeballroomdancing', TypeBallroomDancingViewSet)
-router.register(r'team', TeamViewSet)
-router.register(r'member', MemberViewSet)
-router.register(r'competition', CompetitionViewSet)
-router.register(r'competitionprogram', CompetitionProgramViewSet)
-router.register(r'point', PointViewSet)
+router.register(r'trainer', TrainerViewSet, basename='trainer')
+router.register(r'typeballroomdancing', TypeBallroomDancingViewSet, basename='typeballroomdancing')
+router.register(r'team', TeamViewSet, basename='team')
+router.register(r'member', MemberViewSet, basename='member')
+router.register(r'competition', CompetitionViewSet, basename='competition')
+router.register(r'competitionprogram', CompetitionProgramViewSet, basename='competitionprogram')
+router.register(r'point', PointViewSet, basename='point')
 
 urlpatterns = [
     path('', include(router.urls)),
