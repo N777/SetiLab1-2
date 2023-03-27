@@ -2,6 +2,7 @@ from io import BytesIO
 
 from PIL import Image
 from django.core.files.base import File
+from django.core.files.uploadedfile import SimpleUploadedFile
 from django.test import TestCase
 from django.urls import reverse
 from django.utils.crypto import get_random_string

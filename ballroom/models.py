@@ -1,4 +1,16 @@
+from django.contrib.auth.models import AbstractUser
 from django.db import models
+
+
+class User(AbstractUser):
+    sur_name = models.CharField(max_length=150, blank=True)
+
+    def get_full_name(self):
+        """
+        Return the first_name plus the last_name, with a space in between.
+        """
+        full_name = "%s %s %s" % (self.last_name, self.first_name, self.sur_name)
+        return full_name.strip()
 
 
 # Create your models here.

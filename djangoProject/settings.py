@@ -148,6 +148,16 @@ CORS_ALLOWED_ORIGIN_REGEXES = [
     'http://localhost:3030',
 ]
 
+AUTH_USER_MODEL = 'ballroom.User'
+
+DJOSER = {
+    'SERIALIZERS': {
+         'current_user': 'ballroom.serializers.UserSerializer'
+    }
+}
+
+ALLOW_ALL = True
+
 SWAGGER_SETTINGS = {
    'SECURITY_DEFINITIONS': {
         'Bearer': {

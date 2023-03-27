@@ -1,6 +1,15 @@
 from rest_framework import serializers
 
-from ballroom.models import Trainer, TypeBallroomDancing, Team, Member, Competition, CompetitionProgram, Point
+from ballroom.models import Trainer, TypeBallroomDancing, Team, Member, Competition, CompetitionProgram, Point, User
+
+
+class UserSerializer(serializers.ModelSerializer):
+    full_name = serializers.CharField(source='get_full_name')
+
+    class Meta:
+        ref_name = "User 1"
+        model = User
+        fields = ('id', 'full_name', 'username', 'first_name', 'last_name', 'email', 'sur_name')
 
 
 class TrainerSerializer(serializers.ModelSerializer):
